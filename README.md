@@ -1,2 +1,42 @@
 # enharmonics
-Get the enharmonics of a given note
+
+Get the [enharmonics](https://en.wikipedia.org/wiki/Enharmonic) of a given note:
+
+```js
+var enharmonics = require('enharmonics')
+enharmonics('C', ['B#', 'Cbb'])
+```
+
+__This is a low lever library. Probably you want to use [musical-note](http://github.com/danigb/musical-note)__
+
+## Usage 
+
+You can install the module with npm: `npm i --save enharmonics`. If you need browser support use browserify or webpack.
+
+## API
+
+There's only one method:
+
+___`enharmonics(name [, octave, pitchClass])`___
+
+It returns an array of enharmonics to the given note name. The params are:
+
+- name: required, the complete name of the note. It includes the pitch class and the alterations. The __pitch class must be in uppercase__. Examples: `C`, `Bb`, `F##`, `E##`, `Gbb`
+- octave: optional. If given, must be a integer. The returned array will contain octave numbers if this param is present.
+- pitchClass: optional. If given, only the enharmonics with the given pitchClass is returned.
+
+### Examples
+
+```js
+enharmonics('C') // => ['B#', 'Dbb']
+enharmonics('C', 2) // => ['B#1', 'Dbb2']
+enharmonics('C#', 4) // => ['Db4', 'B##3']
+enharmonics('Db', 2) // => ['C#2', 'B##1'])
+enharmonics('Db', 2, 'C') // => ['C#2']
+enharmonics('Db', null, 'C') // => ['C#']
+enharmonics('Db', 4, 'E') // => []
+```
+
+## License
+
+MIT License

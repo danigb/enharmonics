@@ -1,0 +1,28 @@
+{
+  "name": "enharmonics",
+  "version": "0.1.0",
+  "description": "Get the enharmonics of a given note",
+  "main": "enharmonics.js",
+  "scripts": {
+    "test": "vows test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danigb/enharmonics.git"
+  },
+  "keywords": [
+    "note",
+    "enharmonics",
+    "midi",
+    "theory"
+  ],
+  "author": "danigb",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/danigb/enharmonics/issues"
+  },
+  "homepage": "https://github.com/danigb/enharmonics#readme",
+  "devDependencies": {
+    "vows": "^0.8.1"
+  }
+}
