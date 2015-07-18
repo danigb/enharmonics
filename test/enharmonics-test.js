@@ -14,8 +14,9 @@ vows.describe('enharmonics function').addBatch({
     assert.deepEqual(enharmonics('C#', 4), ['Db4', 'B##3'])
   },
   'with pitch class': function () {
-    assert.deepEqual(enharmonics('Db', 2, 'C'), ['C#2'])
     assert.deepEqual(enharmonics('Db', null, 'C'), ['C#'])
-    assert.deepEqual(enharmonics('Db', 4, 'E'), [])
+    assert.deepEqual(enharmonics('Db', null, 'B'), ['B##'])
+    assert.deepEqual(enharmonics('Db', null, 'E'), [])
+    assert.deepEqual(enharmonics('Db', null, 'D'), ['Db'])
   }
 }).export(module)

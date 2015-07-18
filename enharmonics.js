@@ -18,14 +18,15 @@ function octave (name, octave) {
   else return octave
 }
 
-function isClass (name, pitchClass) {
-  return !pitchClass || name[0] === pitchClass
+function isEnharmonic (root, name, pitchClass) {
+  if (pitchClass) return name[0] === pitchClass
+  else return root !== name
 }
 
 module.exports = function enharmonics (name, oct, pitchClass) {
   var list = []
   NOTE_TO_ENHARMONICS[name].forEach(function (enharmonic) {
-    if (enharmonic !== name && isClass(enharmonic, pitchClass)) {
+    if (isEnharmonic(name, enharmonic, pitchClass)) {
       list.push(enharmonic + octave(enharmonic, oct))
     }
   })
