@@ -1,5 +1,12 @@
 # enharmonics
 
+[![Build Status](https://travis-ci.org/danigb/enharmonics.svg?branch=master)](https://travis-ci.org/danigb/enharmonics)
+[![Test Coverage](https://codeclimate.com/github/danigb/enharmonics/badges/coverage.svg)](https://codeclimate.com/github/danigb/enharmonics/coverage)
+[![Code Climate](https://codeclimate.com/github/danigb/enharmonics/badges/gpa.svg)](https://codeclimate.com/github/danigb/enharmonics)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
+[![npm](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/enharmonics)
+[![array-notation](https://img.shields.io/badge/array--notation-compatible-yellow.svg)](https://github.com/danigb/pitch-array)
+
 Get the [enharmonics](https://en.wikipedia.org/wiki/Enharmonic) of a given note:
 
 ```js
