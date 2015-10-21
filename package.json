@@ -1,6 +1,6 @@
 {
   "name": "enharmonics",
-  "version": "0.3.0-pre",
+  "version": "0.3.0",
   "description": "Get the enharmonics of a given note",
   "main": "enharmonics.js",
   "scripts": {
