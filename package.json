@@ -10,7 +10,7 @@
     "coverage": "istanbul cover vows test/*.js",
     "cover": "npm run coverage && open ./coverage/lcov-report/index.html",
     "benchmarks": "node test/benchmarks/*.js",
-    "climate": "npm run coverage && CODECLIMATE_REPO_TOKEN=the-token codeclimate-test-reporter < coverage/lcov.info"
+    "climate": "npm run coverage && CODECLIMATE_REPO_TOKEN=0d8db60a3a68b1af7cb67ba3a80a83b05b1c631299f79242b486c35edec6d6c9 codeclimate-test-reporter < coverage/lcov.info"
   },
   "repository": {
     "type": "git",
