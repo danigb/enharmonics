@@ -2,8 +2,8 @@
 
 var transpose = require('pitch-transpose')
 
-var ASC = '2d'
-var DESC = '-2d'
+var ASC = [1, -2, 0] // dimished second
+var DESC = [6, 1, -1] // descending dimished second
 
 /**
  * Get all the enharmonics of a pitch (up to 4 alterations)
@@ -13,12 +13,13 @@ var DESC = '-2d'
  * @param {String} pitch - the pitch to get the enharmonics from
  * @param {boolean} includeSource - (Optional) If true, the returned array
  * will contain the given pitch. False by default
- * @return {Array} an array of pitches ordered by distance to the given one
+ * @return {Array<String>} an array of pitches ordered by distance to the given one
  *
  * @example
- * enharmonics('C') // => [ 'A###3', 'B#3', 'Dbb4', 'Ebbbb4' ]
- * enharmonics('Ab3') // => ['E####3', 'F###3', 'G#3', 'Bbbb3', 'Cbbbb4']
- * enharmonics('C', true) // => [ 'A###3', 'B#3', 'C4', 'Dbb4', 'Ebbbb4' ]
+ * enharmonics('C') // => ['B#', 'Dbb']
+ * enharmonics('A') // => ['G##', 'Bbb']
+ * enharmonics('C#4') // => ['B##3', 'Db4']
+ * enharmonics('Db') // => ['C#', 'Ebbb'])
  */
 function enharmonics (pitch, includePitch) {
   var enharmonics = []

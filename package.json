@@ -5,6 +5,7 @@
   "main": "enharmonics.js",
   "scripts": {
     "test": "vows test/*.js",
+    "docs": "docme README.md",
     "dist": "browserify index.js > dist/index.js && browserify enharmonics.js | uglifyjs > dist/enharmonics.min.mjs && ls -all dist/*",
     "coverage": "istanbul cover vows test/*.js",
     "cover": "npm run coverage && open ./coverage/lcov-report/index.html",
