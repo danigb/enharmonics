@@ -32,5 +32,8 @@
   "homepage": "https://github.com/danigb/enharmonics#readme",
   "devDependencies": {
     "vows": "^0.8.1"
+  },
+  "dependencies": {
+    "pitch-transpose": "^0.1.1"
   }
 }

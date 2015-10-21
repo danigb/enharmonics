@@ -1,34 +1,31 @@
 'use strict'
 
-var ENHARMONICS = [['C', 'B#', 'Dbb'], ['Db', 'C#', 'B##'],
-  ['D', 'Ebb', 'C##'], ['Eb', 'D#', 'Fbb'], ['E', 'Fb', 'D##'],
-  ['F', 'E#', 'Gbb'], ['Gb', 'F#', 'E##'], ['G', 'Abb', 'F##'],
-  ['Ab', 'G#'], ['A', 'Bbb', 'G##'], ['Bb', 'A#', 'Cbb'], ['B', 'Cb', 'A##']]
-var NOTE_TO_ENHARMONICS = {}
-ENHARMONICS.forEach(function (names) {
-  names.forEach(function (name) {
-    NOTE_TO_ENHARMONICS[name] = names
-  })
-})
+var transpose = require('pitch-transpose')
 
-function octave (name, octave) {
-  if (!octave) return ''
-  else if (name[0] === 'B' && name[1] === '#') return octave - 1
-  else if (name[0] === 'C' && name[1] === 'b') return octave + 1
-  else return octave
+var ASC = '2d'
+var DESC = '-2d'
+
+/**
+ * Get all the enharmonics of a pitch (up to 4 alterations)
+ *
+ * @name enharmonics
+ * @function
+ * @param {String} pitch - the pitch to get the enharmonics from
+ * @param {boolean} includeSource - (Optional) If true, the returned array
+ * will contain the given pitch. False by default
+ * @return {Array} an array of pitches ordered by distance to the given one
+ *
+ * @example
+ * enharmonics('C') // => [ 'A###3', 'B#3', 'Dbb4', 'Ebbbb4' ]
+ * enharmonics('Ab3') // => ['E####3', 'F###3', 'G#3', 'Bbbb3', 'Cbbbb4']
+ * enharmonics('C', true) // => [ 'A###3', 'B#3', 'C4', 'Dbb4', 'Ebbbb4' ]
+ */
+function enharmonics (pitch, includePitch) {
+  var enharmonics = []
+  enharmonics.push(transpose(DESC, pitch))
+  if (includePitch) enharmonics.push(pitch)
+  enharmonics.push(transpose(ASC, pitch))
+  return enharmonics
 }
 
-function isEnharmonic (root, name, pitchClass) {
-  if (pitchClass) return name[0] === pitchClass
-  else return root !== name
-}
-
-module.exports = function enharmonics (name, oct, pitchClass) {
-  var list = []
-  NOTE_TO_ENHARMONICS[name].forEach(function (enharmonic) {
-    if (isEnharmonic(name, enharmonic, pitchClass)) {
-      list.push(enharmonic + octave(enharmonic, oct))
-    }
-  })
-  return list
-}
+module.exports = enharmonics
